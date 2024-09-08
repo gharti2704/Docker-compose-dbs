@@ -27,6 +27,21 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
 
+  ms-sql-db:
+    build:
+      context: ./ms-sql
+      dockerfile: Dockerfile
+    image: gharti2704/ms-sql-db:latest
+    platform: linux/arm64
+    container_name: ms-sql-db
+    env_file:
+      - env/.env.ms-sql
+    ports:
+      - '1433:1433'
+    volumes:
+      - mssql-data:/var/opt/mssql
+
 volumes:
   mongo-data:
   mysql-data:
+  mssql-data:
