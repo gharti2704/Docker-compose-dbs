@@ -4,6 +4,7 @@ services:
       context: ./mongodb
       dockerfile: Dockerfile
     image: gharti2704/mongo-db:latest
+    platform: linux/arm64
     container_name: mongo-db
     env_file:
       - env/.env.mongo
@@ -17,6 +18,7 @@ services:
       context: ./mysql
       dockerfile: Dockerfile
     image: gharti2704/mysql-db:latest
+    platform: linux/arm64
     container_name: mysql-db
     env_file:
       - env/.env.mysql
