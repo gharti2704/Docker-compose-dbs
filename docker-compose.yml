@@ -12,5 +12,19 @@ services:
     volumes:
       - mongo-data:/data/db
 
+  mysql-db:
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    image: gharti2704/mysql-db:latest
+    container_name: mysql-db
+    env_file:
+      - env/.env.mysql
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql
+
 volumes:
   mongo-data:
+  mysql-data:
